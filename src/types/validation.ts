@@ -332,7 +332,7 @@ export type ErrorCause = z.infer<typeof errorCauseSchema>
 export const vmExecutionError = z.object({
     name: z.literal("CallExecutionError"),
     cause: z.object({
-        name: z.literal("RpcRequestError"),
+        name: z.literal("UnknownRpcError"),
         cause: z.object({
             data: z.string().transform((val) => {
                 const hexStringRegex = /0x([a-fA-F0-9]+)?/

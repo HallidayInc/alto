@@ -17,12 +17,6 @@
         "*.d.ts",
         "*.js"
     ],
-    "exports": {
-        ".": {
-            "import": "./esm/index.js",
-            "require": "./esm/index.js"
-        }
-    },
     "scripts": {
         "build": "tsc -p ./tsconfig.json && tsc-alias -p tsconfig.json",
         "build:esm": "tsc -p ./tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",

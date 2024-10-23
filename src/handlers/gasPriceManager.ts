@@ -636,10 +636,12 @@ export class GasPriceManager {
             )
         }
 
+        /*
         if (gasPrice.maxPriorityFeePerGas < lowestMaxPriorityFeePerGas) {
             throw new RpcError(
                 `maxPriorityFeePerGas must be at least ${lowestMaxPriorityFeePerGas} (current maxPriorityFeePerGas: ${gasPrice.maxPriorityFeePerGas}) - use pimlico_getUserOperationGasPrice to get the current gas price`
             )
         }
+        */
     }
 }

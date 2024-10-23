@@ -1,5 +1,14 @@
 import { type IOptions, optionArgsSchema, type IOptionsInput } from "@alto/cli"
 import { fromZodError } from "zod-validation-error"
+import {
+    bundlerOptions,
+    compatibilityOptions,
+    serverOptions,
+    rpcOptions,
+    bundleCompressionOptions,
+    logOptions,
+    debugOptions
+} from "./config/options"
 
 type CamelCase<S extends string> =
     S extends `${infer P1}-${infer P2}${infer P3}`
@@ -32,6 +41,20 @@ function convertKeysToCamelCase<T extends IOptions>(
         },
         {} as CamelCasedProperties<T>
     )
+}
+
+export const defaultArgs = (overrides: Partial<IOptionsInput>): CamelCasedProperties<IOptions> => {
+    const options = {
+        ...bundlerOptions,
+        ...compatibilityOptions,
+        ...serverOptions,
+        ...rpcOptions,
+        ...bundleCompressionOptions,
+        ...logOptions,
+        ...debugOptions
+    }
+    const defaults = Object.entries(options).reduce((acc, [k, v]) => ({ ...acc, [k]: v?.default }), {})
+    return parseArgs({ ...defaults as IOptionsInput, ...overrides })
 }
 
 export const parseArgs = (

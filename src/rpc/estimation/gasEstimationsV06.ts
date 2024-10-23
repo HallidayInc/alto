@@ -181,7 +181,7 @@ export class GasEstimatorV06 {
                             .pipe(hexDataSchema)
                     }),
                     z.object({
-                        code: z.number(),
+                        code: z.any(),
                         message: z
                             .string()
                             .regex(

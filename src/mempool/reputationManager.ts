@@ -150,7 +150,7 @@ export class NullReputationManager implements InterfaceReputationManager {
         _entryPoint: Address,
         _address: `0x${string}` | null
     ): ReputationStatus {
-        throw new Error("Method not implemented.")
+        return ReputationStatuses.ok;
     }
 
     getStakeStatus(

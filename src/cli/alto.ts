@@ -85,6 +85,7 @@ export function getAltoCli(): yargs.Argv {
     return alto
 }
 
+/*
 export class YargsError extends Error {}
 
 const alto = getAltoCli()
@@ -111,3 +112,4 @@ alto.fail((msg, err) => {
     console.error(` × ${errorMessage}\n`)
     process.exit(1)
 }).parse()
+*/
